@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Deets 
-author: Thomas, Licheng, Adrian, Brian, Thomas, Ethan, Pranav
+author: Thomas, Licheng, Adrian, Brian, Thomas, Ethan, Jadon, Pranav
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
