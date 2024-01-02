@@ -5,7 +5,7 @@ Code for the deets project website.
 ### Installing Jupyter-book
 This repository is public, so you can make modifications to this project. 
 
-This project is made using [jupyter-books](https://jupyterbook.org/en/stable/intro.html). Jupyter-books is a python module that converts markdown and jupyter notebooks into a website as shown at https://pru1.github.io/intro-to-cp/intro.html. 
+This project is made using [jupyter-books](https://jupyterbook.org/en/stable/intro.html). Jupyter-books is a python module that converts markdown and jupyter notebooks into a website as shown at ______________________
 
 1. Follow the instructions [here](https://jupyterbook.org/en/stable/start/overview.html) to install jupyter-book.
 
