@@ -39,10 +39,8 @@ If you'd like to contribute a new page, you'll need to learn the basics of markd
  
 ## Todo List/Known Issues
 - [ ] Remove markdown.md file and `- file: markdown` from `_toc.yml`. Website breaks for some reason if I try removing it :/.
-- [ ] Finish website content. List of things to be added linked [here](https://docs.google.com/document/d/1cigJVnryWrAkcMw-flvNzj0HXxIHrgNCFf2AhEDn7YA/edit?usp=sharing)
-- [ ] Add coding club logo (once logo is made)
+- [ ] Finish website content. 
 - [ ] Play with website CSS (default colour scheme is a bit boring)
-- [ ] The directory names are misleading (called `yay_python`). Ignore this, this project was originally an introduction to Python. 
 
 ## Contact us
 For any questions, please contact us on Discord @ assistant_of_milo or by email @ 340895069@gapps.yrdsb.ca
