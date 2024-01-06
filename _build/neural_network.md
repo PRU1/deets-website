@@ -22,7 +22,7 @@ The hidden nodes, which are simply nodes in the hidden layer(s), apply a transfo
 
 Now, the hidden node repeats this process for every other connected input node. For example, node B could have a weight of 0.8, and an input value of 2 and so the calculated value would be $0.8\cdot 2+0.2$. The values calculated for every single connected input nodes are then summed and a final transformation is applied onto this sum. The final transformation that is applied is something called the activation function. **Note:** $\Sigma$ means sum, $b$ is bias, $x$ is input, $w$ is weight, $f$ is activation function. 
 
-![neural_network](https://github.com/PRU1/deets-website/blob/main/_build/images/neural_network_activation_function.jpeg)
+![neural_network](https://github.com/PRU1/deets-website/blob/main/_build/images/neural_network_activation_function.jpg)
 
 The activation function is a way to sort of assign a relative importance to all the nodes. It helps filter any unimportant details, and helps provide a scale to all the values calculated. For example, imagine a metal is heated to 4000K compared to 5000K, the activation function in this case recognizes that those are both incredibly hot and the 1000K difference between them doesn't really matter, and would provide both of them with similar activation values. 
 
