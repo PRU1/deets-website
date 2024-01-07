@@ -9,3 +9,5 @@ chapters:
 - file: gradient_descent
 - file: backpropagation
 - file: cool_stuff
+- file: loss_function
+- file: proof_of_existence

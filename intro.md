@@ -14,6 +14,8 @@ $$
 \end{align}
 $$
 
+Does markdown support inline $\latex$
+
 # Fun fact
 
 
