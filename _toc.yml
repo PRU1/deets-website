@@ -6,6 +6,7 @@ root: intro
 chapters:
 - file: about_the_software
 - file: machine_learning
+- file: neural_network
 - file: gradient_descent
 - file: backpropagation
 - file: cool_stuff
