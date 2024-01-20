@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Backpropagation &#8212; Deets</title>
+    <title>What is an Artificial Neural network &#8212; Deets</title>
   
   
   
@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'backpropagation';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'neural_network';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cool ML Stuff" href="cool_stuff.html" />
-    <link rel="prev" title="Gradient Descent: walking down a hill" href="gradient_descent.html" />
+    <link rel="next" title="Gradient Descent: walking down a hill" href="gradient_descent.html" />
+    <link rel="prev" title="What is Machine Learning?" href="machine_learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,12 +161,12 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="about_the_software.html">About the application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="machine_learning.html">What is Machine Learning?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neural_network.html">What is an Artificial Neural network</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What is an Artificial Neural network</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="gradient_descent.html">Gradient Descent: walking down a hill</a></li>
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Backpropagation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backpropagation.html">Backpropagation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cool_stuff.html">Cool ML Stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loss_function.html">General Loss Functions</a></li>
 
@@ -243,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fbackpropagation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fneural_network.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -273,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/backpropagation.md" target="_blank"
+      <li><a href="_sources/neural_network.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -342,7 +344,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -353,11 +357,27 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Backpropagation</h1>
+    <h1>What is an Artificial Neural network</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is an Artificial Neural network</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-this-implemeneted">How is this implemeneted?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-neural-networks">Uses of Neural Networks</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -367,8 +387,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="backpropagation">
-<h1>Backpropagation<a class="headerlink" href="#backpropagation" title="Permalink to this heading">#</a></h1>
+  <section id="what-is-an-artificial-neural-network">
+<h1>What is an Artificial Neural network<a class="headerlink" href="#what-is-an-artificial-neural-network" title="Permalink to this heading">#</a></h1>
+<p>An Artificial Neural Network is a network of nodes. This is designed to mirror brains, and in this analogy nodes are akin to neurons. Nodes are connected to each other and can send “signals”. Nodes receive, process, and then send out those signals. A neural network itself simply takes and input and provides an output. At the fundamental level it is a type of algorithm and is not intrinsically linked to maching learning. How neural entworks process the signals received are dependent on a few parameters in the nodes, machine learning is the process of iteratively chaging those parameters to create a more accurate neural network. It should be noted the machine learning has a more broad usage than only neural networks.</p>
+<section id="how-is-this-implemeneted">
+<h2>How is this implemeneted?<a class="headerlink" href="#how-is-this-implemeneted" title="Permalink to this heading">#</a></h2>
+<p>Nodes are split into several layers in a neural network.</p>
+<p><img alt="neural_network" src="%22_build/images/neural_network.png%22" /></p>
+<p>The input layer, then the hidden layers, and finally the output layer. The input layer is where the data starts. Every input node is a number, representing a trait of the data.</p>
+<p>For example in a neural network for handwriting recognition, you could upload a picture, and the input nodes would take the brightness value of each pixel in some order.</p>
+<p>The hidden layers do the actual processing, and the output layer shows the result of all the processing. However, before the data reaches any hidden node there is another adjustment made. Between any two connected nodes, there is a <em>weight</em> attached. This weight is often a number between 0 and 1. The value of the input node is then multiplied by this weight before being sent to the next node. Remember that this weight value is specific to the node connection, and so can differ even if the same input value is being sent to a different node.</p>
+<p><img alt="neural_network" src="https://github.com/PRU1/deets-website/blob/main/_build/images/neural_network_weight.png" /></p>
+<p>The hidden nodes, which are simply nodes in the hidden layer(s), apply a transformation to the received input(with the weight multipled). The first transformation applied is the addition of a parameter called the <em>bias</em>. The bias is specific to nodes, and is a way to assign a sort of importance to a node. For exmaple if a node does not matter, then a hugely negative bias could be assigned. Now imagine we have a neural network with one hidden layer. Let’s say we had an input of 3 from node A, a weight of 0.5 applied, and then a bias of 0.2. Then we would have <span class="math notranslate nohighlight">\(0.5\cdot 3 +0.2\)</span>.</p>
+<p><img alt="neural_network" src="https://github.com/PRU1/deets-website/blob/main/_build/images/neural_network_bias.png" /></p>
+<p>Now, the hidden node repeats this process for every other connected input node. For example, node B could have a weight of 0.8, and an input value of 2 and so the calculated value would be <span class="math notranslate nohighlight">\(0.8\cdot 2+0.2\)</span>. The values calculated for every single connected input nodes are then summed and a final transformation is applied onto this sum. The final transformation that is applied is something called the activation function. <strong>Note:</strong> <span class="math notranslate nohighlight">\(\Sigma\)</span> means sum, <span class="math notranslate nohighlight">\(b\)</span> is bias, <span class="math notranslate nohighlight">\(x\)</span> is input, <span class="math notranslate nohighlight">\(w\)</span> is weight, <span class="math notranslate nohighlight">\(f\)</span> is activation function.</p>
+<p><img alt="neural_network" src="https://github.com/PRU1/deets-website/blob/main/_build/images/neural_network_activation_function.jpg" /></p>
+<p>The activation function is a way to sort of assign a relative importance to all the nodes. It helps filter any unimportant details, and helps provide a scale to all the values calculated. For example, imagine a metal is heated to 4000K compared to 5000K, the activation function in this case recognizes that those are both incredibly hot and the 1000K difference between them doesn’t really matter, and would provide both of them with similar activation values.</p>
+<p>Here is an example of a common activation function called the sigmoid.
+<img alt="sigmoid" src="https://github.com/PRU1/deets-website/blob/main/_build/images/sigmoid.png" /></p>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A neural network is a form of algorithm</p></li>
+<li><p>Machine learning is the process of improving an algorithm</p></li>
+<li><p>A neural network is not a type of machine learning</p></li>
+<li><p>A neural network is made of layers of nodes</p></li>
+<li><p>Nodes are connected between each successive layer</p></li>
+<li><p>Each layer has a specific job, input, output, and hidden(processing)</p></li>
+<li><p>Inputs are numbers</p></li>
+<li><p>Between any two nodes in consecutive layers, there is a connection with an attached <em>weight</em> between 0 and 1</p></li>
+<li><p>The weight is a measure of the importance of an input to the next node</p></li>
+<li><p>The bias is added in the hidden nodes and is specific to every hidden node</p></li>
+<li><p>The bias is added to the weight scaled input</p></li>
+<li><p>The bias is a measure of the importance of a node to the neural network as a whole</p></li>
+<li><p>After the inputs are weighted and bias added, they are summed and an activation function is applied</p></li>
+<li><p>An activation function is an importance curve</p></li>
+<li><p>The activation function filters important details and scales the calculated values</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="uses-of-neural-networks">
+<h1>Uses of Neural Networks<a class="headerlink" href="#uses-of-neural-networks" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -403,20 +463,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="gradient_descent.html"
+       href="machine_learning.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Gradient Descent: walking down a hill</p>
+        <p class="prev-next-title">What is Machine Learning?</p>
       </div>
     </a>
     <a class="right-next"
-       href="cool_stuff.html"
+       href="gradient_descent.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cool ML Stuff</p>
+        <p class="prev-next-title">Gradient Descent: walking down a hill</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -429,6 +489,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is an Artificial Neural network</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-this-implemeneted">How is this implemeneted?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-neural-networks">Uses of Neural Networks</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

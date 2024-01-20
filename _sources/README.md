@@ -31,9 +31,9 @@ If you'd like to contribute a new page, you'll need to learn the basics of markd
 ### Uploading your changes
 - In GitHub Desktop, commit the changes and select "push to origin"
 - [ ] add photo to show this
-- Once your changes appear on GitHub, run the following command in command line where the `_book/` directory is stored on your computer
+- Once your changes appear on GitHub, run the following command in command line where the `_build/` directory is stored on your computer
   ```
-  ghp-import -n -p -f _book/html
+  ghp-import -n -p -f _build/html
   ```
 
  
