@@ -29,12 +29,14 @@ Machine learning is one way that this is done. A loss function can for example m
 In summary, machine learning is the process of improving an algorithm to do a specific problem. We can think of an algorithm as a tool to solve a given problem. Machine learning is a way to improve this tool, and a neural network is a type of tool.
 
 # What is Machine Learning: The Minimization Problem
-If machine learning can be thought of minimizing the error, or in other words the loss function, by iteratively tweaking the parameters then we can now tackle how exactly machine learning is done. An algorithm is a function, and a neural network is a type of continuous function(given that the activation function is continuous). Furthermore, if the activation function is continuously differentiable, then the neural network is continuously differentiable. This just means that is is smooth and that we can define a "slope" at any given point on the function.
+We can think of machine learning as minimizing the loss function, or in other words the loss function, by iteratively tweaking the parameters to minimize the loss. A neural network is still fundamentally a function, and if the activation function is "smooth", then the network itself when viewed as a function is also smooth. 
 
-The loss function is then typically also continuously differentiable if the activation function is continuously differentiable. To shorten, we will replace continuously differentiable with $C^0$. I say typically here, because it depends ont he choice of loss function but for almost all serious or practical applications, this is true. For mroe information, refer to -----%Insert link to loss_function.md
+Below here, we have the same idea but in more technical terms. 
+
+The loss function is continuously differentiable if the activation function is continuously differentiable. This is because a neural network is generally written as a linear combination of the activation function, the weights, and biases. Since continuous differentiability is conserved under addition and multiplication, the neural network is continuously differentiable if the activation function is. For more information, refer to -----%Insert link to loss_function.md
 
 The loss function is a function of a set of parameters and the input. We can think of this as a function from $\mathbb{R}^n\rightarrow\mathbb{R}$. Now imagine fixing the input variable, then we have a function that maps several parameters to one real number. If we limit the number of parameters to 2(Which cannot happen in general, this is for illustration purposes), we get a simple function of two variables, which looks like the attached image below.
 
 -----%Insert image of loss function with x-axis being parameters.
 
-Now of course, ordinarily we cannot see the complete picture as above. However, it turns out we do not need to. To find a local minimum, it turns out we don't need much information, we only need to know what direction to head in.
+Now of course, ordinarily we cannot see the complete picture as above. However, it turns out we do not need to. To find a local minimum, we don't need much information, we only need to know what direction to head in.
