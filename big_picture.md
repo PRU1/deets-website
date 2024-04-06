@@ -39,4 +39,18 @@ The loss function is a function of a set of parameters and the input. We can thi
 
 -----%Insert image of loss function with x-axis being parameters.
 
-Now of course, ordinarily we cannot see the complete picture as above. However, it turns out we do not need to. To find a local minimum, we don't need much information, we only need to know what direction to head in.
+Now of course, ordinarily we cannot see the complete picture as above. However, it turns out we do not need to. To find a local minimum, we don't need much information, we only need to know what direction to head in. This is the essence of gradient descent. A common analogy is that the loss function is like a mountainous terrain, minimizing the loss function would be finding a valley in this landscape. Gradient descent essentially says that if you walk in the direction of steepest descent, you will find this valley, thus minimizing the loss function. Mathematically, this requires something called "the gradient". For the sake of efficiency, there is also a certain step size that must be chosen, since recalculation of the gradient can take some time.
+
+-----%Insert image of gradient descent
+
+The way that the gradient is calculated for any given input, output, loss function, activation functions, weights, biases, etc. relies on something called backpropogration. Backpropogation relies on the fact that the "chain rule" for multivariable function relies on the compuation of individual derivatives of the components of the function. In other words, it relies on the derivative of the composition of functions to be the product of the derivatives of the individual component functions. In simpler terms, it relies on the derivative of a composition of functions' ability to be broken up and computed individually. Backpropogation is an efficient way to compute the gradient, avoiding duplicate calculations. 
+
+# Practical Considerations
+What has been described here is the generic example of using gradient descent and backpropogation to train a feedforward neural network. However, there are usually many other considerations to a problem that may change the algorithms used, the activation function used, the step size, loss function, method of training, type of algorithm trained, etc. for example often the sigmoid activation function is not used, instead RELU and GELU are used, which are often more efficient, GELU being the smooth form of RELU. Although it may seem like a good idea to reduce the step size to as low as possible to ensure accuracy, the training time needs to be considered. On the other end of the spectrum, increasing the step size is not necessarily a good idea either, as a phenomenom called overtaining can happen, which can be thought of as accidentally stepping over small valleys in the terrain analogy. 
+
+-----%Insert image of overtraining
+
+Another consideration that must be made is the width of each layer and the number of layers used. Increasing the width vs increasing the number of layers have different effects on the training process, speed, and etc. Nodes cannot be easily added or removed either without causing significant loss of progress after training has begun, so the exact layer widths and number of layers are also a consideration that must be made. With less nodes, the network might struggle to accurately model the problem and data, if possible at all(see Theoretical Considerations). However, with too many nodes, the network might take too long to train. 
+
+# Theoretical Considerations
+How can we ensure that for any given problem we have, a feedforward neural network can even be trained for it?
